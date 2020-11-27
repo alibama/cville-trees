@@ -1,0 +1,11 @@
+altair
+zipfile
+pandas
+streamlit
+shapely
+fiona
+pyproj
+gdal
+rtree
+pygeos
+geopandas
