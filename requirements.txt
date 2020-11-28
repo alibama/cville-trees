@@ -2,7 +2,7 @@ altair
 pandas
 streamlit
 shapely
-fiona
+Fiona
 pyproj
 gdal
 rtree
