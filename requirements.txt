@@ -1,5 +1,4 @@
 altair
-zipfile
 pandas
 streamlit
 shapely
