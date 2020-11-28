@@ -2,9 +2,5 @@ altair
 pandas
 streamlit
 shapely
-Fiona
-pyproj
-gdal
-rtree
-pygeos
+fiona
 geopandas
