@@ -12,7 +12,20 @@ import json, re
 
 """
 # Welcome to The Cville Tree Commission Neighborhood Tree App!
+As part of the Charlottesville Tree Commission we're working to help the city of Charlottesville make greater value of the available local, regional, and national datasets in understanding tree ecosystems and canopy as it relates to public health and more equitable living experiences in our shared community.
+
+One of the best local data sets is Charlottesville's own open data portal available here https://opendata.charlottesville.org/pages/download-gis-data-shp-cad
+From this dataset hosted in ArcEsri's online data portal we can find files in CSV, geoJSON, .shp and many other standard geospatial data formats
+For this example we will be using the neighborhood data to begin better understanding our community actions.
+
+
+Another local ArcEsri database hosted at the University of Virginia is UVa's Equity Atlas https://equity-atlas-uvalibrary.opendata.arcgis.com/datasets/charlottesville::tree-inventory-point and tools like https://opendata.charlottesville.org/pages/download-gis-data-shp-cad
+For this example we are pulling our tree point data (specifically only the publicly owned trees on city proprty... more on that later) to begin our analysis
+
+
+
 """
+
 
 trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a25d684b8311_79.geojson")
 
