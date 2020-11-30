@@ -27,20 +27,27 @@ https://gis.stackexchange.com/questions/225586/reading-raw-data-into-geopandas i
 """
 
 
+
+
 trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a25d684b8311_79.geojson")
 
 zip_url = 'http://widget.charlottesville.org/gis/zip_download/planning_area.zip'
 cvillehoods = gpd.read_file(zip_url)
 
+cvillehoods.head()
 
 trees_in_hoods=gpd.sjoin(trees, cvillehoods, how="inner", op='intersects')
+
+
+
 
 test=trees_in_hoods.head()
 test
 #st.map(cvillehoods)
 
 
-      
+
+"""
 
 
 
@@ -55,3 +62,5 @@ if start_date < end_date:
     st.success('Start date: `%s`\n\nEnd date:`%s`' % (start_date, end_date))
 else:
     st.error('Error: End date must fall after start date.')
+
+"""
