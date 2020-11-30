@@ -4,3 +4,4 @@ streamlit
 shapely
 fiona
 geopandas
+pygeos
