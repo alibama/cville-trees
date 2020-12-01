@@ -6,3 +6,4 @@ fiona
 geopandas
 pygeos
 matplotlib
+descartes
