@@ -37,7 +37,7 @@ cvillehoods = gpd.read_file(zip_url)
 """
 test libspatialindex
 """
-trees_in_hoods=gpd.sjoin(trees, cvillehoods, how="inner", op="within")
+trees_in_hoods=gpd.sjoin(trees, cvillehoods, op="within")
 
 
 trees_in_hoods
