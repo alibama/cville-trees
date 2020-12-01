@@ -8,6 +8,7 @@ import geopandas as gpd
 import requests
 import datetime
 import json, re
+import matplotlib
 
 
 """
@@ -42,8 +43,8 @@ test libspatialindex
 trees_in_hoods=gpd.sjoin(trees, cvillehoods, how="inner", op='intersects')
 
 
-test=trees_in_hoods.head()
-test
+#test=trees_in_hoods.head()
+#test
 #st.map(cvillehoods)
 
 
