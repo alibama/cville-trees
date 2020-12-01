@@ -33,14 +33,15 @@ trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a2
 zip_url = 'http://widget.charlottesville.org/gis/zip_download/planning_area.zip'
 cvillehoods = gpd.read_file(zip_url)
 
+"""test data"""
+
 trees.head()
 
 """
-<br>
 test libspatialindex
 """
 
-trees_in_hoods=gpd.sjoin(trees, cvillehoods, how="inner", op='intersects')
+#trees_in_hoods=gpd.sjoin(trees, cvillehoods, how="inner", op='intersects')
 
 
 #test=trees_in_hoods.head()
