@@ -32,8 +32,7 @@ cvillehoods = gpd.read_file(zip_url)
 
 """test data"""
 
-
-st.map(cvillehoods)
+cvillehoods
 """
 test libspatialindex
 """
