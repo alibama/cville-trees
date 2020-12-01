@@ -32,16 +32,15 @@ cvillehoods = gpd.read_file(zip_url)
 
 """test data"""
 
-cvillehoods
-trees
+#cvillehoods
+#trees
 """
 test libspatialindex
 """
+trees_in_hoods=gpd.sjoin(trees, cvillehoods, how="inner", op="within")
 
-#trees_in_hoods=gpd.sjoin(trees, cvillehoods, how="inner", op='intersects')
 
-
-#test=trees_in_hoods.head()
+trees_in_hoods
 #test
 #st.map(cvillehoods)
 
