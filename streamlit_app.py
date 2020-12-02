@@ -21,7 +21,7 @@ For this example we will be using the neighborhood data to begin better understa
 
 
 Another local ArcEsri database hosted at the University of Virginia is UVa's Equity Atlas https://equity-atlas-uvalibrary.opendata.arcgis.com/datasets/charlottesville::tree-inventory-point and tools like https://opendata.charlottesville.org/pages/download-gis-data-shp-cad
-For this example we are pulling our tree point data (specifically only the publicly owned trees on city proprty... more on that later) to begin our analysis
+For this example we are pulling our tree point data (specifically only the publicly owned trees on city property... more on that later) to begin our analysis
 
 https://gis.stackexchange.com/questions/225586/reading-raw-data-into-geopandas is a quick tutorial for getting data in to https://geopandas.org/ 
 
