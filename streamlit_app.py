@@ -9,7 +9,7 @@ import requests
 import datetime
 import json, re
 import matplotlib
-
+import pydeck as pdk
 
 """
 # Welcome to The Cville Tree Commission Neighborhood Tree App!
@@ -51,6 +51,15 @@ trees_in_hoods
 
 """test date time widgets"""
 
+layers = [
+    pdk.Layer(
+        "GeoJsonLayer",
+        data=cvillehoods,
+        get_fill_color=[0, 0, 0],
+    ),
+
+]
+pdk.Deck(layers, map_provider=None).to_html("geopandas_integration.html", css_background_color="cornflowerblue")
 
 
 today = datetime.date.today()
