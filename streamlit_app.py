@@ -64,7 +64,7 @@ view_state = pdk.ViewState(
 # Combined all of it and render a viewport
 r = pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
-    layers=[layer],
+    layers=[layers],
     initial_view_state=view_state,
 )
 st.pydeck_chart(r)
