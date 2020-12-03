@@ -1,4 +1,4 @@
-altair
+pydeck
 pandas
 streamlit
 shapely
