@@ -45,16 +45,16 @@ trees_in_hoods
 #st.map(cvillehoods)
 
 """test date time widgets"""
+cvillehoodsna = cvillehoods.dropna() # IMPORTANT TO DROP NA
 
-layers = [
+layer = [
     pdk.Layer(
         "GeoJsonLayer",
-        data=cvillehoods,
+        data=cvillehoodsna,
         get_fill_color=[0, 0, 0],
     ),
 
 ]
-#pdk.Deck(layers, map_provider=None).to_html("geopandas_integration.html", css_background_color="cornflowerblue")
 
 # Set the viewport location
 view_state = pdk.ViewState(
@@ -64,7 +64,7 @@ view_state = pdk.ViewState(
 # Combined all of it and render a viewport
 r = pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
-    layers=[layers],
+    layers=[layer],
     initial_view_state=view_state,
 )
 st.pydeck_chart(r)
