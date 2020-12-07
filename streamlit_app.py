@@ -30,8 +30,8 @@ zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 cvillehoods = gpd.read_file(zip_url)
 
 """test data"""
-cvillegeo = cvillehoods[['geometry']].copy()
-cvillegeo.head()
+#cvillegeo = cvillehoods[['geometry']].copy()
+cvillehoods.head()
 #trees
 """
 test libspatialindex
@@ -39,11 +39,12 @@ test libspatialindex
 trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='inner', op='contains')
 
 
-trees_in_hoods
+#trees_in_hoods
 #test
 #st.map(cvillehoods)
 
 """test date time widgets"""
+
 cvillehoodsna = cvillehoods.dropna() # IMPORTANT TO DROP NA
 
 layer = [
@@ -68,7 +69,7 @@ r = pdk.Deck(
 )
 st.pydeck_chart(r)
 
-
+"""
 today = datetime.date.today()
 tomorrow = today + datetime.timedelta(days=1)
 start_date = st.date_input('Start date', today)
@@ -77,4 +78,4 @@ if start_date < end_date:
     st.success('Start date: `%s`\n\nEnd date:`%s`' % (start_date, end_date))
 else:
     st.error('Error: End date must fall after start date.')
-
+"""
