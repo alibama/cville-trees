@@ -30,8 +30,8 @@ zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 cvillehoods = gpd.read_file(zip_url)
 
 """test data"""
-
-cvillehoods.head()
+cvillegeo = cvillehoods[['geometry']].copy()
+cvillegeo.head()
 #trees
 """
 test libspatialindex
@@ -49,7 +49,7 @@ cvillehoodsna = cvillehoods.dropna() # IMPORTANT TO DROP NA
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
-        data=cvillehoodsna,
+        data=cvillegeo,
         get_fill_color=[10, 20, 30],
     ),
 
