@@ -51,14 +51,14 @@ layer = [
     pdk.Layer(
         "GeoJsonLayer",
         data=cvillehoodsna,
-        get_fill_color=[0, 0, 0],
+        get_fill_color=[10, 20, 30],
     ),
 
 ]
 
 # Set the viewport location
 view_state = pdk.ViewState(
-    longitude=-38.0293, latitude=78.4767, zoom=6, min_zoom=5, max_zoom=15, pitch=40.5, bearing=-27.36
+    longitude=38.0293, latitude=78.4767, zoom=6, min_zoom=5, max_zoom=15, pitch=40.5, bearing=-27.36
 )
 
 # Combined all of it and render a viewport
