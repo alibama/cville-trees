@@ -29,8 +29,9 @@ trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a2
 zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 cvillehoods = gpd.read_file(zip_url)
 
+cvillehoods.geometry.name
 
-cvillehoods.columns.tolist()
+
 """test data"""
 #cvillegeo = cvillehoods[['geometry']].copy()
 
