@@ -31,7 +31,7 @@ cvillehoods = gpd.read_file(zip_url)
 
 """test data"""
 #cvillegeo = cvillehoods[['geometry']].copy()
-cvillehoods.head()
+cvillehoods
 #trees
 """
 test libspatialindex
@@ -50,7 +50,7 @@ cvillehoodsna = cvillehoods.dropna() # IMPORTANT TO DROP NA
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
-        data=cvillegeo,
+        data=cvillehoodsna,
         get_fill_color=[10, 20, 30],
     ),
 
