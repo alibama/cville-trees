@@ -45,7 +45,7 @@ trees_in_hoods
 #st.map(cvillehoods)
 
 """test date time widgets"""
-cvillehoodsna = cvillehoods.fillna(0) # IMPORTANT TO DROP NA
+cvillehoodsna = cvillehoods.dropna() # IMPORTANT TO DROP NA
 
 layer = [
     pdk.Layer(
