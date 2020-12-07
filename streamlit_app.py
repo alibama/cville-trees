@@ -58,7 +58,7 @@ layer = [
 
 # Set the viewport location
 view_state = pdk.ViewState(
-    latitude=38.033554, longitude=-78.507980, zoom=6, min_zoom=5, max_zoom=15, pitch=40.5, bearing=27.36
+    longitude=-78.507980, latitude=38.033554, zoom=6, min_zoom=5, max_zoom=15, pitch=40.5, bearing=27.36
 )
 
 # Combined all of it and render a viewport
