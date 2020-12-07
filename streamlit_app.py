@@ -45,12 +45,12 @@ trees_in_hoods
 #st.map(cvillehoods)
 
 """test date time widgets"""
-cvillehoodsna = cvillehoods.dropna() # IMPORTANT TO DROP NA
+cvillehoodsna = cvillehoods.fillna(0) # IMPORTANT TO DROP NA
 
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
-        data=cvillehoods,
+        data=cvillehoodsna,
         get_fill_color=[10, 20, 30],
     ),
 
