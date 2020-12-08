@@ -45,7 +45,7 @@ trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='inner', op='contains')
 
 treetype = trees['Common_Name'].drop_duplicates()
 tree_choice = st.sidebar.selectbox('Tree type:', treetype)
-trees = trees.loc[trees['Common_Name'] == 'White Ash']
+trees = trees.loc[trees['Common_Name'] == "White Ash"]
 
 #trees_in_hoods
 
