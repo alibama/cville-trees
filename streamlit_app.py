@@ -45,9 +45,10 @@ trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='inner', op='contains')
 
 treetype = trees['Common_Name'].drop_duplicates()
 tree_choice = st.sidebar.selectbox('Tree type:', treetype)
-#trees = trees.loc[trees['Common_Name'] == tree_choice]
+
 trees=trees[trees['Common_Name'].str.contains(tree_choice)]
-#trees_in_hoods
+
+dotradius = st.slider('x') 
 
 #test
 #st.map(cvillehoods)
@@ -61,7 +62,7 @@ layer = [
         "GeoJsonLayer",
         data=trees,
         getFillColor=[60, 220, 255],
-        getRadius=12,
+        getRadius=dotradius,
     ),
 
 ]
