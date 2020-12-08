@@ -33,9 +33,9 @@ cvillehoods.geometry.name
 
 
 """test data"""
-cvillegeo = cvillehoods[['geometry']].copy()
+#cvillegeo = cvillehoods[['geometry']].copy()
 
-#trees
+trees.head()
 """
 test libspatialindex
 """
