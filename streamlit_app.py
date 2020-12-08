@@ -53,7 +53,7 @@ cvillehoodsna = cvillehoods.dropna() # IMPORTANT TO DROP NA
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
-        data=cvillegeo,
+        data=trees,
         get_fill_color=[10, 20, 30],
     ),
 
