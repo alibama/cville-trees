@@ -57,7 +57,7 @@ layer = [
         "GeoJsonLayer",
         data=trees,
         getFillColor=[60, 220, 255],
-        getRadius=5000,
+        getRadius=5,
     ),
 
 ]
