@@ -24,22 +24,16 @@ For this example we are pulling our tree point data (specifically only the publi
 
 https://gis.stackexchange.com/questions/225586/reading-raw-data-into-geopandas is a quick tutorial for getting data in to https://geopandas.org/ 
 
+This is a quick look at finding publicly managed trees in cville using the https://deck.gl/ library & https://www.streamlit.io/
+
 """
 trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a25d684b8311_79.geojson")
 zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 cvillehoods = gpd.read_file(zip_url)
 
-cvillehoods.geometry.name
-
-
-"""test data"""
-#cvillegeo = cvillehoods[['geometry']].copy()
-
-treesna=trees.dropna()
-treesna
 
 """
-test libspatialindex
+Testing geopandas & libspatialindex
 """
 trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='inner', op='contains')
 
@@ -48,7 +42,7 @@ tree_choice = st.sidebar.selectbox('Tree type:', treetype)
 
 trees=trees[trees['Common_Name'].str.contains(tree_choice)]
 
-dotradius = st.slider('x') 
+dotradius = st.sidebar.slider('Tree dot radius') 
 
 #test
 #st.map(cvillehoods)
@@ -79,14 +73,3 @@ r = pdk.Deck(
     initial_view_state=view_state,
 )
 st.pydeck_chart(r)
-
-"""
-today = datetime.date.today()
-tomorrow = today + datetime.timedelta(days=1)
-start_date = st.date_input('Start date', today)
-end_date = st.date_input('End date', tomorrow)
-if start_date < end_date:
-    st.success('Start date: `%s`\n\nEnd date:`%s`' % (start_date, end_date))
-else:
-    st.error('Error: End date must fall after start date.')
-"""
