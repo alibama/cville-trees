@@ -56,8 +56,8 @@ layer = [
     pdk.Layer(
         "GeoJsonLayer",
         data=trees,
-        getFillColor: [60, 220, 255],
-        getRadius: 5000,
+        getFillColor=[60, 220, 255],
+        getRadius=5000,
     ),
 
 ]
