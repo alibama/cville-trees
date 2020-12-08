@@ -37,24 +37,18 @@ Testing geopandas & libspatialindex
 """
 trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='inner', op='contains')
 
-treetype = trees['Common_Name'].drop_duplicates()
-tree_choice = st.sidebar.selectbox('Tree type:', treetype)
+treetype = trees['Common_Name'].drop_duplicates() # select all of the trees from the dataframe and filter by unique values to create a useful dropdown menu list
+tree_choice = st.sidebar.selectbox('Tree type:', treetype) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
+trees=trees[trees['Common_Name'].str.contains(tree_choice)] # create a dataframe for our deck.gl map to use in the layer as the data source and update it based on the selection made above
 
-trees=trees[trees['Common_Name'].str.contains(tree_choice)]
-
-dotradius = st.sidebar.slider('Tree dot radius') 
-
-#test
-#st.map(cvillehoods)
-
-"""DeckGL & Streamlit widgets"""
+dotradius = st.sidebar.slider('Tree dot radius',min_value=1, value=10, max_value=50)) # this creates a slider widget called "tree dot radius"
 
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
         data=trees,
         getFillColor=[60, 220, 255],
-        getRadius=dotradius,
+        getRadius=dotradius, #here's the streamlit slider widget being used to determine the size of the point on the deckgl map
     ),
 
 ]
