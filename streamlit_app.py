@@ -37,6 +37,7 @@ cvillehoods.geometry.name
 
 treesna=trees.dropna()
 treesna
+
 """
 test libspatialindex
 """
@@ -55,6 +56,8 @@ layer = [
     pdk.Layer(
         "GeoJsonLayer",
         data=trees,
+        getFillColor: [60, 220, 255],
+        getRadius: 5000,
     ),
 
 ]
