@@ -35,7 +35,7 @@ cvillehoods.geometry.name
 """test data"""
 #cvillegeo = cvillehoods[['geometry']].copy()
 
-trees.head()
+trees
 """
 test libspatialindex
 """
@@ -54,7 +54,6 @@ layer = [
     pdk.Layer(
         "GeoJsonLayer",
         data=trees,
-        get_fill_color=[10, 20, 30],
     ),
 
 ]
