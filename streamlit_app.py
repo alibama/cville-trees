@@ -33,7 +33,7 @@ cvillehoods.geometry.name
 
 
 """test data"""
-#cvillegeo = cvillehoods[['geometry']].copy()
+cvillegeo = cvillehoods[['geometry']].copy()
 
 #trees
 """
@@ -53,7 +53,7 @@ cvillehoodsna = cvillehoods.dropna() # IMPORTANT TO DROP NA
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
-        data=cvillehoodsna,
+        data=cvillegeo,
         get_fill_color=[10, 20, 30],
     ),
 
