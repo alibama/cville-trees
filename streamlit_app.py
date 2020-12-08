@@ -47,9 +47,7 @@ dotradius = st.sidebar.slider('Tree dot radius')
 #test
 #st.map(cvillehoods)
 
-"""test date time widgets"""
-
-cvillehoodsna = cvillehoods.dropna() # IMPORTANT TO DROP NA
+"""DeckGL & Streamlit widgets"""
 
 layer = [
     pdk.Layer(
