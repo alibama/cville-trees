@@ -43,6 +43,8 @@ test libspatialindex
 """
 trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='inner', op='contains')
 
+treetype = trees['Common_Name'].drop_duplicates()
+tree_choice = st.sidebar.selectbox('Tree type:', treetype)
 
 #trees_in_hoods
 #test
