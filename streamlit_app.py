@@ -30,8 +30,8 @@ This is a quick look at finding publicly managed trees in cville using the https
 trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a25d684b8311_79.geojson")
 zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 cvillehoods = gpd.read_file(zip_url)
-
-
+cvillehoods.to_file("cvillehoods.geojson", driver='GeoJSON')
+cvillegeo=gpd.read_file("cvillehoods.geojson")
 """
 Testing geopandas & libspatialindex
 """
@@ -46,7 +46,7 @@ dotradius = st.sidebar.slider("Tree dot radius",1,100,50,1) # this creates a sli
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
-        data=trees,
+        data=cvillgeo,
         getFillColor=[60, 220, 255],
         getRadius=dotradius, #here's the streamlit slider widget being used to determine the size of the point on the deckgl map
     ),
