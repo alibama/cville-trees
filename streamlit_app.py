@@ -12,7 +12,7 @@ import pydeck as pdk
 
 """
 # Welcome to The Cville Neighborhood Tree App!
-As part of the Charlottesville Tree Commission we're working to help the city of Charlottesville make greater value of the available local, regional, and national datasets in understanding tree ecosystems and canopy as it relates to public health and more equitable living experiences in our shared community.
+As part of the Charlottesville Tree Commission we're working to help the City of Charlottesville make greater value of the available local, regional, and national datasets in understanding tree ecosystems and canopy as it relates to public health and more equitable living experiences in our shared community.
 
 One of the best local data sets is Charlottesville's own open data portal available here https://opendata.charlottesville.org/pages/download-gis-data-shp-cad
 From this dataset hosted in ArcEsri's online data portal we can find files in CSV, geoJSON, .shp and many other standard geospatial data formats
