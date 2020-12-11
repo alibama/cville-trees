@@ -29,7 +29,7 @@ This is a quick look at finding publicly managed trees in cville using the https
 trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a25d684b8311_79.geojson")
 zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 cvillehoods = gpd.read_file(zip_url)
-cvillehoods.to_crs("EPSG:4326") # https://geopandas.org/projections.html 
+cvillehoods.crs="EPSG:4326" # https://geopandas.org/projections.html 
 cvillehoods.to_file("cvillehoods.geojson", driver='GeoJSON')
 cvillegeo=gpd.read_file("cvillehoods.geojson")
 cvillegeo=cvillegeo[['NAME', 'geometry']]
