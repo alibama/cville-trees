@@ -12,6 +12,11 @@ import pydeck as pdk
 
 """
 # Welcome to The Cville Neighborhood Tree App!
+
+First up a thank you to the Claude Moore Health Science Library for supporting open source and open science. For anyone interested in learning more I'm teaching a short course on this coming up in January
+
+https://cal.hsl.virginia.edu/event/7280134
+
 The Charlottesville Tree Commission is helping the City of Charlottesville understand our tree ecosystems to better public health and provide more equitable living experiences. 
 To do this we are merging the available local, regional, and national tree canopy and municiple datasets.
 
@@ -19,11 +24,12 @@ One of the best local data sets is Charlottesville's own open data portal availa
 From this dataset hosted in ArcEsri's online data portal we can find files in CSV, geoJSON, .shp and many other standard geospatial data formats
 For this example we will be using the neighborhood data to begin better understanding our community actions.
 
-
 Another local ArcEsri database hosted at the University of Virginia is UVa's Equity Atlas https://equity-atlas-uvalibrary.opendata.arcgis.com/datasets/charlottesville::tree-inventory-point and tools like https://opendata.charlottesville.org/pages/download-gis-data-shp-cad
 For this example we are pulling our tree point data (specifically only the publicly owned trees on city property... more on that later) to begin our analysis
 
-https://gis.stackexchange.com/questions/225586/reading-raw-data-into-geopandas is a quick tutorial for getting data in to https://geopandas.org/ 
+For information on how this app was built https://guides.hsl.virginia.edu/it-services-blog/zoombites/Geopandas-and-streamlit-to-display-local-tree-data-in-deckgl
+
+https://gis.stackexchange.com/questions/225586/reading-raw-data-into-geopandas is a tutorial for getting data in to https://geopandas.org/ 
 
 This is a quick look at finding publicly managed trees in cville using the https://deck.gl/ library & https://www.streamlit.io/
 
