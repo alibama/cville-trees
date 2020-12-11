@@ -56,11 +56,11 @@ layer = [
         getFillColor=[60, 220, 255],
         getRadius=dotradius, #here's the streamlit slider widget being used to determine the size of the point on the deckgl map
     ),
-#    pdk.Layer(
-#        "GeoJsonLayer",
-#        data=cvillegeo,
-#        getFillColor=[20, 20, 123],
-#    ),
+    pdk.Layer(
+        "GeoJsonLayer",
+        data=cvillegeo,
+        getFillColor=[20, 20, 123],
+    ),
 ]
 
 
