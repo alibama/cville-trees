@@ -5,4 +5,5 @@ shapely
 fiona
 geopandas
 pygeos
+folium
 streamlit-folium
