@@ -38,7 +38,7 @@ cvillegeo
 Testing geopandas & libspatialindex
 """
 trees_in_hoods=gpd.sjoin(trees, cvillegeo, how='inner', op='contains')
-
+trees_in_hoods
 treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
 tree_choice = st.sidebar.selectbox('Tree type:', treetype) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 trees=trees[trees['Common_Name'].str.contains(tree_choice)] # create a dataframe for our deck.gl map to use in the layer as the data source and update it based on the selection made above
@@ -75,3 +75,14 @@ r = pdk.Deck(
     initial_view_state=view_state,
 )
 st.pydeck_chart(r)
+import os
+import base64
+
+
+def get_binary_file_downloader_html(bin_file, file_label='File'):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    bin_str = base64.b64encode(data).decode()
+    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
+    return href
+st.markdown(get_binary_file_downloader_html('cvillehoods.geojson', 'data'), unsafe_allow_html=True)
