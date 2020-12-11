@@ -8,8 +8,6 @@ import requests
 import datetime
 import json, re
 import pydeck as pdk
-import streamlit-folium
-from streamlit_folium import folium_static
 import folium
 
 """
