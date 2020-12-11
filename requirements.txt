@@ -6,4 +6,4 @@ fiona
 geopandas
 pygeos
 folium
-streamlit-folium
+pyproj
