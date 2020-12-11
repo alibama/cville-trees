@@ -32,7 +32,9 @@ zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 cvillehoods = gpd.read_file(zip_url)
 cvillehoods.to_file("cvillehoods.geojson", driver='GeoJSON')
 cvillegeo=gpd.read_file("cvillehoods.geojson")
-cvillegeo
+cvillegeo=cvillegeo[['NAME', 'geometry']]
+cvillegeo.head(2)
+
 
 """
 Testing geopandas & libspatialindex
