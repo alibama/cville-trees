@@ -46,7 +46,7 @@ dotradius = st.sidebar.slider("Tree dot radius",1,100,50,1) # this creates a sli
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
-        data=cvillgeo,
+        data=cvillegeo,
         getFillColor=[60, 220, 255],
         getRadius=dotradius, #here's the streamlit slider widget being used to determine the size of the point on the deckgl map
     ),
