@@ -37,7 +37,7 @@ cvillegeo
 """
 Testing geopandas & libspatialindex
 """
-#trees_in_hoods=gpd.sjoin(trees, cvillegeo, how='inner', op='contains')
+trees_in_hoods=gpd.sjoin(trees, cvillegeo, how='inner', op='contains')
 
 treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
 tree_choice = st.sidebar.selectbox('Tree type:', treetype) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
