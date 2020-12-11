@@ -35,7 +35,7 @@ cvillegeo=gpd.read_file("cvillehoods.geojson")
 cvillegeo=cvillegeo[['NAME', 'geometry']]
 
 
-cvillegeo.crs
+cvillehoods.crs
 """
 Testing geopandas & libspatialindex
 """
