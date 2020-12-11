@@ -8,7 +8,9 @@ import requests
 import datetime
 import json, re
 import pydeck as pdk
-from io import StringIO
+import streamlit-folium
+from streamlit_folium import folium_static
+import folium
 
 """
 # Welcome to The Cville Tree Commission Neighborhood Tree App!
