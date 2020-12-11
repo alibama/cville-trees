@@ -5,3 +5,4 @@ shapely
 fiona
 geopandas
 pygeos
+pyproj
