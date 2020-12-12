@@ -9,6 +9,7 @@ import datetime
 import json, re
 import pydeck as pdk
 import pyproj
+from shapely.ops import orient # https://gis.stackexchange.com/questions/336477/how-to-apply-the-orient-function-on-the-geometry-of-a-geopandas-dataframe
 """
 # Welcome to The Cville Tree Commission Neighborhood Tree App!
 As part of the Charlottesville Tree Commission we're working to help the city of Charlottesville make greater value of the available local, regional, and national datasets in understanding tree ecosystems and canopy as it relates to public health and more equitable living experiences in our shared community.
@@ -30,6 +31,8 @@ trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a2
 zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 cvillehoods = gpd.read_file(zip_url)
 cvillehoods.crs="EPSG:4326" # https://geopandas.org/projections.html 
+cvillehoods.geometry = cvillehoods.geometry.apply(orient, args=(-1,)) #fix the right hand rule orientation issues 
+
 cvillehoods.to_file("cvillehoods.geojson", driver='GeoJSON')
 cvillegeo=gpd.read_file("cvillehoods.geojson")
 cvillegeo=cvillegeo[['NAME', 'geometry']]
