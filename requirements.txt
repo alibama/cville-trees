@@ -7,3 +7,4 @@ geopandas
 pygeos
 folium
 pyproj
+geojson-rewind
