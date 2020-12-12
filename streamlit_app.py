@@ -32,10 +32,10 @@ zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 cvillehoods = gpd.read_file(zip_url)
 cvillehoods.crs="EPSG:4326" # https://geopandas.org/projections.html 
 cvillehoods.geometry = cvillehoods.geometry.apply(orient, args=(-1,)) #fix the right hand rule orientation issues 
-
+cvillehoods=cvillehoods[['NAME', 'geometry']]
 cvillehoods.to_file("cvillehoods.geojson", driver='GeoJSON')
 cvillegeo=gpd.read_file("cvillehoods.geojson")
-cvillegeo=cvillegeo[['NAME', 'geometry']]
+
 
 
 cvillehoods.crs
