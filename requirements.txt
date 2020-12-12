@@ -6,4 +6,3 @@ fiona
 geopandas
 pygeos
 pyproj
-geojson-rewind
