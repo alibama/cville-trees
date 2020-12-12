@@ -78,6 +78,7 @@ r = pdk.Deck(
     map_style="mapbox://styles/mapbox/light-v9",
     layers=[layer],
     initial_view_state=view_state,
+    tooltip={"html": "<b>Tree species:</b> {tree_choice}", "style": {"color": "white"}},
 )
 st.pydeck_chart(r)
 import os
