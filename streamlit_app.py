@@ -11,6 +11,7 @@ import pydeck as pdk
 import pyproj
 from shapely.ops import orient # https://gis.stackexchange.com/questions/336477/how-to-apply-the-orient-function-on-the-geometry-of-a-geopandas-dataframe
 from geojson_rewind import rewind
+from osgeo import gdal
 
 """
 # Welcome to The Cville Tree Commission Neighborhood Tree App!
@@ -37,7 +38,7 @@ cvillehoods.geometry = cvillehoods.geometry.apply(orient, args=(-1,)) #fix the r
 cvillehoods=cvillehoods[['NAME', 'geometry']]
 
 cvillehoods.to_file("cvillehoods.geojson", driver='GeoJSON')
-#cvillenew=rewind("cvillehoods.geojson")
+cvillenew=rewind("cvillehoods.geojson")
 cvillegeo=gpd.read_file("cvillehoods.geojson")
 cvillegeo=gpd.read_file(cvillenew)
 
@@ -54,7 +55,7 @@ dotradius = st.sidebar.slider("Tree dot radius",1,100,50,1) # this creates a sli
 """
 this should work. #https://gis.stackexchange.com/questions/255586/gdal-vectortranslate-returns-empty-object
 """
-from osgeo import gdal
+
 gdal.UseExceptions()
 srcDS = gdal.OpenEx('cvillehoods.geojson')
 ds1 = gdal.VectorTranslate('coutput.geojson', srcDS=srcDS, format = 'GeoJSON', layerCreationOptions = ['RFC7946=YES', 'WRITE_BBOX=YES'])
