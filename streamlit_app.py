@@ -11,7 +11,9 @@ import pydeck as pdk
 import pyproj
 from shapely.ops import orient # https://gis.stackexchange.com/questions/336477/how-to-apply-the-orient-function-on-the-geometry-of-a-geopandas-dataframe
 from geojson_rewind import rewind
-from osgeo import gdal
+#from osgeo import gdal
+import sys
+sys.path
 
 """
 # Welcome to The Cville Tree Commission Neighborhood Tree App!
