@@ -38,8 +38,8 @@ cvillehoods=cvillehoods[['NAME', 'geometry']]
 
 cvillehoods.to_file("cvillehoods.geojson", driver='GeoJSON')
 #cvillenew=rewind("cvillehoods.geojson")
-#cvillegeo=gpd.read_file("cvillehoods.geojson")
-#cvillegeo=gpd.read_file(cvillenew)
+cvillegeo=gpd.read_file("cvillehoods.geojson")
+cvillegeo=gpd.read_file(cvillenew)
 
 """
 Testing geopandas & libspatialindex
