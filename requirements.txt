@@ -8,3 +8,4 @@ pygeos
 folium
 pyproj
 geojson-rewind
+osgeo
