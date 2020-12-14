@@ -37,7 +37,7 @@ cvillehoods.geometry = cvillehoods.geometry.apply(orient, args=(-1,)) #fix the r
 cvillehoods=cvillehoods[['NAME', 'geometry']]
 
 cvillehoods.to_file("cvillehoods.geojson", driver='GeoJSON')
-cvillenew=rewind("cvillehoods.geojson")
+#cvillenew=rewind("cvillehoods.geojson")
 #cvillegeo=gpd.read_file("cvillehoods.geojson")
 #cvillegeo=gpd.read_file(cvillenew)
 
@@ -52,8 +52,21 @@ trees=trees[trees['Common_Name'].str.contains(tree_choice)] # create a dataframe
 
 dotradius = st.sidebar.slider("Tree dot radius",1,100,50,1) # this creates a slider widget called "tree dot radius" with the format of "slider name", followed by the minimum value, the maximum value, the default value, and the incremental movement value
 """
-this should work
+this should work. #https://gis.stackexchange.com/questions/255586/gdal-vectortranslate-returns-empty-object
 """
+from osgeo import gdal
+gdal.UseExceptions()
+srcDS = gdal.OpenEx('cvillehoods.geojson')
+ds1 = gdal.VectorTranslate('coutput.geojson', srcDS=srcDS, format = 'GeoJSON', layerCreationOptions = ['RFC7946=YES', 'WRITE_BBOX=YES'])
+
+#Dereference and close dataset, then reopen.
+del ds
+ds = gdal.OpenEx('coutput.geojson')
+
+print(srcDS.GetLayer(0).GetFeatureCount())
+print(ds.GetLayer(0).GetFeatureCount())
+
+
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
@@ -61,11 +74,11 @@ layer = [
         getFillColor=[60, 220, 255],
         getRadius=dotradius, #here's the streamlit slider widget being used to determine the size of the point on the deckgl map
     ),
-    pdk.Layer(
-        "GeoJsonLayer",
-        data=cvillenew,
-        getFillColor=[20, 20, 123],
-    ),
+#    pdk.Layer(
+#        "GeoJsonLayer",
+#        data=cvillenew,
+#        getFillColor=[20, 20, 123],
+#    ),
 ]
 
 
