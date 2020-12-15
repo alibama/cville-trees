@@ -7,7 +7,6 @@ import geopandas as gpd
 import requests
 import datetime
 import json, re
-import matplotlib
 import pydeck as pdk
 
 """
