@@ -10,7 +10,8 @@ import json, re
 import pydeck as pdk
 import pyproj
 from shapely.ops import orient # https://gis.stackexchange.com/questions/336477/how-to-apply-the-orient-function-on-the-geometry-of-a-geopandas-dataframe
-from osgeo import gdal
+import osgeo
+import GDAL
 import sys
 sys.path
 
