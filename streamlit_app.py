@@ -10,8 +10,8 @@ import json, re
 import pydeck as pdk
 import pyproj
 from shapely.ops import orient # https://gis.stackexchange.com/questions/336477/how-to-apply-the-orient-function-on-the-geometry-of-a-geopandas-dataframe
-import osgeo
-from osgeo import gdal
+#import osgeo
+#from osgeo import gdal
 import sys
 sys.path
 
@@ -38,7 +38,6 @@ cvillehoods = gpd.read_file(zip_url)
 cvillehoods.crs="EPSG:4326" # https://geopandas.org/projections.html 
 cvillehoods.geometry = cvillehoods.geometry.apply(orient, args=(-1,)) #fix the right hand rule orientation issues 
 cvillehoods=cvillehoods[['NAME', 'geometry']]
-
 cvillehoods.to_file("cvillehoods.geojson", driver='GeoJSON')
 cvillegeo=gpd.read_file("cvillehoods.geojson")
 
@@ -56,16 +55,16 @@ dotradius = st.sidebar.slider("Tree dot radius",1,100,50,1) # this creates a sli
 this should work. #https://gis.stackexchange.com/questions/255586/gdal-vectortranslate-returns-empty-object
 """
 
-gdal.UseExceptions()
-srcDS = gdal.OpenEx('cvillehoods.geojson')
-ds1 = gdal.VectorTranslate('coutput.geojson', srcDS=srcDS, format = 'GeoJSON', layerCreationOptions = ['RFC7946=YES', 'WRITE_BBOX=YES'])
+#gdal.UseExceptions()
+#srcDS = gdal.OpenEx('cvillehoods.geojson')
+#ds1 = gdal.VectorTranslate('coutput.geojson', srcDS=srcDS, format = 'GeoJSON', layerCreationOptions = ['RFC7946=YES', 'WRITE_BBOX=YES'])
 
 #Dereference and close dataset, then reopen.
-del ds
-ds = gdal.OpenEx('coutput.geojson')
-
-print(srcDS.GetLayer(0).GetFeatureCount())
-print(ds.GetLayer(0).GetFeatureCount())
+#del ds
+#ds = gdal.OpenEx('coutput.geojson')
+#
+#print(srcDS.GetLayer(0).GetFeatureCount())
+#print(ds.GetLayer(0).GetFeatureCount())
 
 
 layer = [
