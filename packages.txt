@@ -1,3 +1,2 @@
 gdal-bin
 python-rtree
-gdal-devel
