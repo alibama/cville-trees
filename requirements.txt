@@ -7,5 +7,5 @@ geopandas
 pygeos
 folium
 pyproj
-geojson-rewind
 osgeo
+gdal
