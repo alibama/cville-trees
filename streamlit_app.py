@@ -10,7 +10,6 @@ import json, re
 import pydeck as pdk
 import pyproj
 from shapely.ops import orient # https://gis.stackexchange.com/questions/336477/how-to-apply-the-orient-function-on-the-geometry-of-a-geopandas-dataframe
-from geojson_rewind import rewind
 #from osgeo import gdal
 import sys
 sys.path
@@ -40,9 +39,8 @@ cvillehoods.geometry = cvillehoods.geometry.apply(orient, args=(-1,)) #fix the r
 cvillehoods=cvillehoods[['NAME', 'geometry']]
 
 cvillehoods.to_file("cvillehoods.geojson", driver='GeoJSON')
-cvillenew=rewind("cvillehoods.geojson")
 cvillegeo=gpd.read_file("cvillehoods.geojson")
-cvillegeo=gpd.read_file(cvillenew)
+cvillegeo=gpd.read_file(cvillegeo)
 
 """
 Testing geopandas & libspatialindex
