@@ -8,4 +8,4 @@ pygeos
 folium
 pyproj
 osgeo
-gdal
+GDAL
