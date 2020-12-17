@@ -1,2 +1,4 @@
 gdal-bin
 python-rtree
+libgdal-dev
+python-gdal
