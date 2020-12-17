@@ -12,6 +12,7 @@ import pyproj
 from shapely.ops import orient # https://gis.stackexchange.com/questions/336477/how-to-apply-the-orient-function-on-the-geometry-of-a-geopandas-dataframe
 #import osgeo
 #from osgeo import gdal
+import gdal
 import sys
 sys.path
 
