@@ -33,13 +33,11 @@ This is a quick look at finding publicly managed trees in cville using the https
 
 """
 trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a25d684b8311_79.geojson")
-zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
-
-
+#zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 
 api = overpass.API()
 cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
-cvilleresult
+#cvilleresult
 cvillegeo=gpd.read_file(cvilleresult)
 """
 Testing geopandas & libspatialindex
