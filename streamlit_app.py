@@ -49,8 +49,8 @@ cvillegeo=gpd.read_file("cvillehoods.geojson")
 api2 = overpass.API()
 #response = api2.get('node["highway"="bus_stop"](50.229341,18.981932,50.293210,19.059694);')responseformat="geojson", verbosity="geom")
 cvilleresult2 = api2.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
-cvilleresult2
-#cvillegeo=gpd.read_file('cvilleresult2')
+#cvilleresult2
+cvillegeo=gpd.read_file(cvilleresult2)
 """
 Testing geopandas & libspatialindex
 """
@@ -84,11 +84,11 @@ layer = [
         getFillColor=[60, 220, 255],
         getRadius=dotradius, #here's the streamlit slider widget being used to determine the size of the point on the deckgl map
     ),
-#    pdk.Layer(
-#        "GeoJsonLayer",
-#        data=cvillegeo,
-#        getFillColor=[20, 20, 123],
-#    ),
+    pdk.Layer(
+        "GeoJsonLayer",
+        data=cvillegeo,
+        getFillColor=[20, 20, 123],
+    ),
 ]
 
 
