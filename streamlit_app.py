@@ -35,22 +35,12 @@ This is a quick look at finding publicly managed trees in cville using the https
 trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a25d684b8311_79.geojson")
 zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 
-"""
 
-cvillehoods = gpd.read_file(zip_url)
-#cvillehoods.crs="EPSG:4326" # https://geopandas.org/projections.html 
-cvillecrs =cvillehoods.to_crs(epsg=4326, inplace=True)
-#cvillehoods.geometry = cvillehoods.geometry.apply(orient, args=(-1,)) #fix the right hand rule orientation issues 
-cvillecrs=cvillecrs[['NAME', 'geometry']]
-cvillehoods.to_file("cvillehoods.geojson", driver='GeoJSON')
-cvillegeo=gpd.read_file("cvillehoods.geojson")
-"""
 
-api2 = overpass.API()
-#response = api2.get('node["highway"="bus_stop"](50.229341,18.981932,50.293210,19.059694);')responseformat="geojson", verbosity="geom")
-cvilleresult2 = api2.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
+api = overpass.API()
+cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
 #cvilleresult2
-cvillegeo=gpd.read_file(cvilleresult2)
+#cvillegeo=gpd.read_file(cvilleresult)
 """
 Testing geopandas & libspatialindex
 """
@@ -86,7 +76,7 @@ layer = [
     ),
     pdk.Layer(
         "GeoJsonLayer",
-        data=cvillegeo,
+        data=cvilleresult,
         getFillColor=[20, 20, 123],
     ),
 ]
