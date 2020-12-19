@@ -37,7 +37,7 @@ trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a2
 
 api = overpass.API()
 cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
-cvillefile = io.BytesIO(b'cvilleresult')
+cvillefile = io.BytesIO(rb'cvilleresult')
 #cvilleresult
 cvillegeo=gpd.read_file(cvillefile)
 """
