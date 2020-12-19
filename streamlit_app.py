@@ -58,7 +58,7 @@ this should work. #https://gis.stackexchange.com/questions/255586/gdal-vectortra
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
-        data=trees,
+        data=cvilleresult,
         getFillColor=[60, 220, 255],
         getRadius=dotradius, #here's the streamlit slider widget being used to determine the size of the point on the deckgl map
     ),
