@@ -39,7 +39,7 @@ zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 
 api = overpass.API()
 cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
-#cvilleresult2
+cvilleresult
 cvillegeo=gpd.read_file(cvilleresult)
 """
 Testing geopandas & libspatialindex
