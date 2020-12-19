@@ -14,7 +14,7 @@ import osgeo
 #from osgeo import gdal
 #import gdal
 import overpass
-
+import io
 """
 # Welcome to The Cville Tree Commission Neighborhood Tree App!
 As part of the Charlottesville Tree Commission we're working to help the city of Charlottesville make greater value of the available local, regional, and national datasets in understanding tree ecosystems and canopy as it relates to public health and more equitable living experiences in our shared community.
@@ -37,8 +37,9 @@ trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a2
 
 api = overpass.API()
 cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
+cvillefile = io.BytesIO(b'cvilleresult')
 #cvilleresult
-cvillegeo=gpd.read_file(cvilleresult)
+cvillegeo=gpd.read_file(cvillefile)
 """
 Testing geopandas & libspatialindex
 """
