@@ -47,8 +47,8 @@ cvillegeo=gpd.read_file("cvillehoods.geojson")
 """
 
 api2 = overpass.API()
-#response = api2.get('node["highway"="bus_stop"](50.229341,18.981932,50.293210,19.059694);')
-cvilleresult2 = api2.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);')
+#response = api2.get('node["highway"="bus_stop"](50.229341,18.981932,50.293210,19.059694);')responseformat="geojson", verbosity="geom")
+cvilleresult2 = api2.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
 cvilleresult2
 #cvillegeo=gpd.read_file('cvilleresult2')
 """
