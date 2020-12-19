@@ -40,11 +40,11 @@ zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 api = overpass.API()
 cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
 #cvilleresult2
-#cvillegeo=gpd.read_file(cvilleresult)
+cvillegeo=gpd.read_file(cvilleresult)
 """
 Testing geopandas & libspatialindex
 """
-trees_in_hoods=gpd.sjoin(trees, cvillegeo, how='inner', op='contains')
+#trees_in_hoods=gpd.sjoin(trees, cvillegeo, how='inner', op='contains')
 trees_in_hoods
 treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
 tree_choice = st.sidebar.selectbox('Tree type:', treetype) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
@@ -54,17 +54,6 @@ dotradius = st.sidebar.slider("Tree dot radius",1,100,50,1) # this creates a sli
 """
 this should work. #https://gis.stackexchange.com/questions/255586/gdal-vectortranslate-returns-empty-object
 """
-
-#gdal.UseExceptions()
-#srcDS = gdal.OpenEx('cvillehoods.geojson')
-#ds1 = gdal.VectorTranslate('coutput.geojson', srcDS=srcDS, format = 'GeoJSON', layerCreationOptions = ['RFC7946=YES', 'WRITE_BBOX=YES'])
-
-#Dereference and close dataset, then reopen.
-#del ds
-#ds = gdal.OpenEx('coutput.geojson')
-#
-#print(srcDS.GetLayer(0).GetFeatureCount())
-#print(ds.GetLayer(0).GetFeatureCount())
 
 
 layer = [
