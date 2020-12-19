@@ -38,8 +38,8 @@ trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a2
 api = overpass.API()
 cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
 #cvillefile = io.StringIO(cvilleresult)
-st.write(type(cvilleresult))
-#cvillegeo=gpd.read_file(cvillefile)
+#st.write(type(cvilleresult))
+
 """
 Testing geopandas & libspatialindex
 """
@@ -62,11 +62,11 @@ layer = [
         getFillColor=[60, 220, 255],
         getRadius=dotradius, #here's the streamlit slider widget being used to determine the size of the point on the deckgl map
     ),
-#    pdk.Layer(
-#        "GeoJsonLayer",
-#        data=cvillegeo,
-#        getFillColor=[20, 20, 123],
-#    ),
+    pdk.Layer(
+        "GeoJsonLayer",
+        data=trees,
+        getFillColor=[20, 20, 123],
+    ),
 ]
 
 
