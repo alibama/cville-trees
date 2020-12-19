@@ -65,7 +65,7 @@ layer = [
     ),
     pdk.Layer(
         "GeoJsonLayer",
-        data=cvilleresult,
+        data=cvillegeo,
         getFillColor=[20, 20, 123],
     ),
 ]
