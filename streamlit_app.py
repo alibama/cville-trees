@@ -36,21 +36,17 @@ This is a quick look at finding publicly managed trees in cville using the https
 """
 trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a25d684b8311_79.geojson")
 #zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
+cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b81024822bad1147ff6bb24c4_51.geojson")
 
-api = overpass.API()
-cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
+#overpass approach
+#api = overpass.API()
+#cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
 #cvillefile = io.StringIO(cvilleresult)
-st.write(type(cvilleresult))
-cvillegeo = gpd.read_file(api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom"))
+#st.write(type(cvilleresult))
+#cvillegeo = gpd.read_file(api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom"))
 #https://gis.stackexchange.com/questions/130963/write-geojson-into-a-geojson-file-with-python
-st.write(type(cvillegeo))
-#def write_json(self, features):
-#   # feature is a shapely geometry type
-#   geom_in_geojson = geojson.Feature(geometry=features, properties={})
-#   tmp_file = tempfile.mkstemp(suffix='.geojson')
-#   with open(tmp_file[1], 'w') as outfile:
-#      geojson.dump(geom_in_geojson, outfile)
-#   return tmp_file[1]
+
+
 
 
 
@@ -73,7 +69,7 @@ this should work. #https://gis.stackexchange.com/questions/255586/gdal-vectortra
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
-        data=cvilleresult,
+        data=cvillehoods,
         getFillColor=[60, 220, 255],
  
     ),
