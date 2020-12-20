@@ -15,6 +15,8 @@ import osgeo
 #import gdal
 import overpass
 import io
+import geojson
+import tempfile
 """
 # Welcome to The Cville Tree Commission Neighborhood Tree App!
 As part of the Charlottesville Tree Commission we're working to help the city of Charlottesville make greater value of the available local, regional, and national datasets in understanding tree ecosystems and canopy as it relates to public health and more equitable living experiences in our shared community.
@@ -39,12 +41,25 @@ api = overpass.API()
 cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
 #cvillefile = io.StringIO(cvilleresult)
 st.write(type(cvilleresult))
-cvillegdf=gpd.read_file(cvilleresult)
+cvillegeo = gpd.read_file(api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom"))
+#https://gis.stackexchange.com/questions/130963/write-geojson-into-a-geojson-file-with-python
+st.write(type(cvillegeo))
+#def write_json(self, features):
+#   # feature is a shapely geometry type
+#   geom_in_geojson = geojson.Feature(geometry=features, properties={})
+#   tmp_file = tempfile.mkstemp(suffix='.geojson')
+#   with open(tmp_file[1], 'w') as outfile:
+#      geojson.dump(geom_in_geojson, outfile)
+#   return tmp_file[1]
+
+
+
+#cvillegdf=gpd.read_file(cvilleresult)
 """
 Testing geopandas & libspatialindex
 """
-trees_in_hoods=gpd.sjoin(trees, cvillegdf, how='inner', op='contains')
-trees_in_hoods
+#trees_in_hoods=gpd.sjoin(trees, cvillegdf, how='inner', op='contains')
+#trees_in_hoods
 treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
 tree_choice = st.sidebar.selectbox('Tree type:', treetype) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 trees=trees[trees['Common_Name'].str.contains(tree_choice)] # create a dataframe for our deck.gl map to use in the layer as the data source and update it based on the selection made above
