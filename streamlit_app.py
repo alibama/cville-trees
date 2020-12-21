@@ -70,7 +70,7 @@ layer = [
     pdk.Layer(
         "GeoJsonLayer",
         data=trees_in_hoods,
-        getFillColor=[60, test*255, 255],
+        getFillColor=[60, 25, 255],
  
     ),
     pdk.Layer(
