@@ -46,7 +46,7 @@ cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b810248
 """
 Testing geopandas sjoin - assigns a neighborhood to each tree point
 """
-trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='left', op='intersects')
+trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='right', op='intersects')
 
 """
 Neighborhood tree totals are counted
