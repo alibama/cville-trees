@@ -36,10 +36,6 @@ trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a2
 #zip_url = "http://widget.charlottesville.org/gis/zip_download/planning_area.zip"
 cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b81024822bad1147ff6bb24c4_51.geojson")
 
-
-
-
-
 #overpass approach
 #api = overpass.API()
 #cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
@@ -53,9 +49,10 @@ cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b810248
 Testing geopandas & libspatialindex?
 """
 trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='left', op='intersects')
-st.write(trees_in_hoods.head())
 
-st.write(list(trees_in_hoods.columns))
+st.write(trees_in_hoods.['NAME'].value_counts())
+
+#st.write(list(trees_in_hoods.columns))
 treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
 tree_choice = st.sidebar.selectbox('Tree type:', treetype) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 trees=trees[trees['Common_Name'].str.contains(tree_choice)] # create a dataframe for our deck.gl map to use in the layer as the data source and update it based on the selection made above
@@ -64,7 +61,6 @@ dotradius = st.sidebar.slider("Tree dot radius",1,100,50,1) # this creates a sli
 """
 this should work. #https://gis.stackexchange.com/questions/255586/gdal-vectortranslate-returns-empty-object
 """
-
 
 layer = [
     pdk.Layer(
