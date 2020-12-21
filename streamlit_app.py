@@ -50,7 +50,7 @@ trees=trees[trees['Common_Name'].str.contains(tree_choice)] # create a dataframe
 Testing geopandas sjoin - assigns a neighborhood to each tree point
 """
 trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='right', op='intersects')
-
+trees_in_hoods['count']=trees_in_hoods['NAME'].value_counts())
 """
 Neighborhood tree totals are counted
 """
@@ -68,7 +68,7 @@ layer = [
     pdk.Layer(
         "GeoJsonLayer",
         data=trees_in_hoods,
-        getFillColor=[60, 220, 255],
+        getFillColor=[60, (1/trees_in_hoods.count)*255, 255],
  
     ),
     pdk.Layer(
