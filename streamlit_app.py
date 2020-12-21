@@ -25,12 +25,10 @@ From this dataset hosted in ArcEsri's online data portal we can find files in CS
 For this example we will be using the neighborhood data to begin better understanding our community actions.
 https://opendata.charlottesville.org/datasets/planning-neighborhood-area & thanks @https://twitter.com/jalbertbowdenii for tracking this down 
 
-Another local ArcEsri database hosted at the University of Virginia is UVa's Equity Atlas https://equity-atlas-uvalibrary.opendata.arcgis.com/datasets/charlottesville::tree-inventory-point and tools like https://opendata.charlottesville.org/pages/download-gis-data-shp-cad
+Another local ArcEsri database hosted at the University of Virginia is UVa's Equity Atlas https://equity-atlas-uvalibrary.opendata.arcgis.com/datasets/charlottesville::tree-inventory-point 
+
 For this example we are pulling our tree point data (specifically only the publicly owned trees on city property... more on that later) to begin our analysis
 
-https://gis.stackexchange.com/questions/225586/reading-raw-data-into-geopandas is a tutorial for getting data in to https://geopandas.org/ 
-
-This is a look at finding publicly managed trees in cville using the https://deck.gl/ library & https://www.streamlit.io/
 
 """
 trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a25d684b8311_79.geojson")
@@ -112,3 +110,9 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
     href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
     return href
 st.markdown(get_binary_file_downloader_html('cvillehoods.geojson', 'data'), unsafe_allow_html=True)
+
+"""
+https://gis.stackexchange.com/questions/225586/reading-raw-data-into-geopandas is a tutorial for getting data in to https://geopandas.org/ 
+
+https://deck.gl/ library is for rendering & https://www.streamlit.io/ puts this whole thing together and sprinkles the pixie's dust on it all
+"""
