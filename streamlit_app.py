@@ -60,7 +60,7 @@ Neighborhood tree totals are counted
 st.write(trees_in_hoods['NAME'].value_counts())
 
 
-st.write(trees_in_hoods['Counts'])
+test=trees_in_hoods['Counts']/100
 dotradius = st.sidebar.slider("Tree dot radius",1,100,50,1) # this creates a slider widget called "tree dot radius" with the format of "slider name", followed by the minimum value, the maximum value, the default value, and the incremental movement value
 """
 And then we write the deck.gl layers from the geopandas dataframes using streamlit.io widgets to edit the data on the screen
@@ -70,7 +70,7 @@ layer = [
     pdk.Layer(
         "GeoJsonLayer",
         data=trees_in_hoods,
-        getFillColor=[60, (1/trees_in_hoods.Counts)*255, 255],
+        getFillColor=[60, test*255, 255],
  
     ),
     pdk.Layer(
