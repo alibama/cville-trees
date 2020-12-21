@@ -113,7 +113,7 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
     bin_str = base64.b64encode(data).decode()
     href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
     return href
-st.markdown(get_binary_file_downloader_html('cvillehoods.geojson', 'data'), unsafe_allow_html=True)
+st.markdown(get_binary_file_downloader_html('cvillehoods', 'data'), unsafe_allow_html=True)
 
 """
 https://gis.stackexchange.com/questions/225586/reading-raw-data-into-geopandas is a tutorial for getting data in to https://geopandas.org/ 
