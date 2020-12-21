@@ -10,27 +10,22 @@ import json, re
 import pydeck as pdk
 import pyproj
 from shapely.ops import orient # https://gis.stackexchange.com/questions/336477/how-to-apply-the-orient-function-on-the-geometry-of-a-geopandas-dataframe
+import osgeo
 import overpass
 import io
 import geojson
 
 """
-# Welcome to The Cville Neighborhood Tree App!
-
-First up a thank you to the Claude Moore Health Science Library for supporting open source and open science. For anyone interested in learning more I'm teaching a short course on this coming up in January
-
-https://cal.hsl.virginia.edu/event/7280134
-
-The Charlottesville Tree Commission is helping the City of Charlottesville understand our tree ecosystems to better public health and provide more equitable living experiences.
-To do this we are merging the available local, regional, and national tree canopy and municiple datasets.
+# Welcome to The Cville Tree Commission Neighborhood Tree App!
+As part of the Charlottesville Tree Commission we're working to help the city of Charlottesville make greater value of the available local, regional, and national datasets in understanding tree ecosystems and canopy as it relates to public health and more equitable living experiences in our shared community.
 
 One of the best local data sets is Charlottesville's own open data portal available here https://opendata.charlottesville.org
 
 From this dataset hosted in ArcEsri's online data portal we can find files in CSV, geoJSON, .shp and many other standard geospatial data formats
 For this example we will be using the neighborhood data to begin better understanding our community actions.
-https://opendata.charlottesville.org/datasets/planning-neighborhood-area & thanks @https://twitter.com/jalbertbowdenii for tracking this down
+https://opendata.charlottesville.org/datasets/planning-neighborhood-area & thanks @https://twitter.com/jalbertbowdenii for tracking this down 
 
-Another local ArcEsri database hosted at the University of Virginia is UVa's Equity Atlas https://equity-atlas-uvalibrary.opendata.arcgis.com/datasets/charlottesville::tree-inventory-point
+Another local ArcEsri database hosted at the University of Virginia is UVa's Equity Atlas https://equity-atlas-uvalibrary.opendata.arcgis.com/datasets/charlottesville::tree-inventory-point 
 
 For this example we are pulling our tree point data (specifically only the publicly owned trees on city property... more on that later) to begin our analysis
 
@@ -74,7 +69,7 @@ layer = [
         "GeoJsonLayer",
         data=cvillehoods,
         getFillColor=[60, 220, 255],
-
+ 
     ),
     pdk.Layer(
         "GeoJsonLayer",
@@ -117,7 +112,7 @@ def get_binary_file_downloader_html(bin_file, file_label='File'):
 st.markdown(get_binary_file_downloader_html('cvillehoods.geojson', 'data'), unsafe_allow_html=True)
 
 """
-https://gis.stackexchange.com/questions/225586/reading-raw-data-into-geopandas is a tutorial for getting data in to https://geopandas.org/
+https://gis.stackexchange.com/questions/225586/reading-raw-data-into-geopandas is a tutorial for getting data in to https://geopandas.org/ 
 
 https://deck.gl/ library is for rendering & https://www.streamlit.io/ puts this whole thing together and sprinkles the pixie's dust on it all
 """
