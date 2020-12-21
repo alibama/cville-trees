@@ -37,9 +37,6 @@ trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a2
 cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b81024822bad1147ff6bb24c4_51.geojson")
 
 
-#dfpivot = pd.pivot_table(dfsjoin,index='PolyID',columns='Food',aggfunc={'Food':len})
-#dfpivot.columns = dfpivot.columns.droplevel()
-#dfpolynew = polys.merge(dfpivot, how='left', on='PolyID')
 
 
 
@@ -56,7 +53,7 @@ cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b810248
 Testing geopandas & libspatialindex?
 """
 trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='inner', op='intersects')
-trees_in_hoods.head()
+st.write(trees_in_hoods.head())
 treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
 tree_choice = st.sidebar.selectbox('Tree type:', treetype) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 trees=trees[trees['Common_Name'].str.contains(tree_choice)] # create a dataframe for our deck.gl map to use in the layer as the data source and update it based on the selection made above
