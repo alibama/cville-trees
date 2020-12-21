@@ -11,12 +11,10 @@ import pydeck as pdk
 import pyproj
 from shapely.ops import orient # https://gis.stackexchange.com/questions/336477/how-to-apply-the-orient-function-on-the-geometry-of-a-geopandas-dataframe
 import osgeo
-#from osgeo import gdal
-#import gdal
 import overpass
 import io
 import geojson
-import tempfile
+
 """
 # Welcome to The Cville Tree Commission Neighborhood Tree App!
 As part of the Charlottesville Tree Commission we're working to help the city of Charlottesville make greater value of the available local, regional, and national datasets in understanding tree ecosystems and canopy as it relates to public health and more equitable living experiences in our shared community.
@@ -55,10 +53,10 @@ cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b810248
 
 #cvillegdf=gpd.read_file(cvilleresult)
 """
-Testing geopandas & libspatialindex
+Testing geopandas & libspatialindex?
 """
-trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='left', op='contains')
-trees_in_hoods
+trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='inner', op='intersects')
+trees_in_hoods.head()
 treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
 tree_choice = st.sidebar.selectbox('Tree type:', treetype) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
 trees=trees[trees['Common_Name'].str.contains(tree_choice)] # create a dataframe for our deck.gl map to use in the layer as the data source and update it based on the selection made above
