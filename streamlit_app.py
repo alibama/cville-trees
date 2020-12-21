@@ -49,7 +49,7 @@ Testing geopandas sjoin - assigns a neighborhood to each tree point
 trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='left', op='intersects')
 
 """
-Neighborhood totaals are counted
+Neighborhood tree totals are counted
 """
 
 st.write(trees_in_hoods['NAME'].value_counts())
