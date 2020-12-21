@@ -23,7 +23,7 @@ One of the best local data sets is Charlottesville's own open data portal availa
 
 From this dataset hosted in ArcEsri's online data portal we can find files in CSV, geoJSON, .shp and many other standard geospatial data formats
 For this example we will be using the neighborhood data to begin better understanding our community actions.
-https://opendata.charlottesville.org/datasets/planning-neighborhood-area (thanks for spotting this @https://twitter.com/jalbertbowdenii for tracking this down 
+https://opendata.charlottesville.org/datasets/planning-neighborhood-area & thanks @https://twitter.com/jalbertbowdenii for tracking this down 
 
 Another local ArcEsri database hosted at the University of Virginia is UVa's Equity Atlas https://equity-atlas-uvalibrary.opendata.arcgis.com/datasets/charlottesville::tree-inventory-point and tools like https://opendata.charlottesville.org/pages/download-gis-data-shp-cad
 For this example we are pulling our tree point data (specifically only the publicly owned trees on city property... more on that later) to begin our analysis
