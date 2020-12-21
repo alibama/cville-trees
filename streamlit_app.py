@@ -98,25 +98,16 @@ Neighborhood tree totals are counted
 
 st.write(trees_in_hoods['NAME'].value_counts())
 
-
-"""
-And lastly we provide some geojson output files in case someone wants to check our work in some other system
-"""
-
-import os
-import base64
+#import os
+#import base64
 
 
-def get_binary_file_downloader_html(bin_file, file_label='File'):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    bin_str = base64.b64encode(data).decode()
-    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
-    return href
-st.markdown(get_binary_file_downloader_html('cvillehoods', 'data'), unsafe_allow_html=True)
+#def get_binary_file_downloader_html(bin_file, file_label='File'):
+#    with open(bin_file, 'rb') as f:
+#        data = f.read()
+#    bin_str = base64.b64encode(data).decode()
+#    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
+#    return href
+#st.markdown(get_binary_file_downloader_html('cvillehoods', 'data'), unsafe_allow_html=True)
 
-"""
-https://gis.stackexchange.com/questions/225586/reading-raw-data-into-geopandas is a tutorial for getting data in to https://geopandas.org/ 
 
-https://deck.gl/ library is for rendering & https://www.streamlit.io/ puts this whole thing together and sprinkles the pixie's dust on it all
-"""
