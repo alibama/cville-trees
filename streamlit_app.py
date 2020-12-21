@@ -52,7 +52,7 @@ cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b810248
 """
 Testing geopandas & libspatialindex?
 """
-trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='inner', op='intersects')
+trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='left', op='intersects')
 st.write(trees_in_hoods.head())
 treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
 tree_choice = st.sidebar.selectbox('Tree type:', treetype) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
