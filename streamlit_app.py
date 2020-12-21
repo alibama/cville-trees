@@ -43,16 +43,7 @@ cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b810248
 #cvillegeo = gpd.read_file(api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom"))
 #https://gis.stackexchange.com/questions/130963/write-geojson-into-a-geojson-file-with-python
 
-"""
-Testing geopandas sjoin - assigns a neighborhood to each tree point
-"""
-trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='left', op='intersects')
 
-"""
-Neighborhood tree totals are counted
-"""
-
-st.write(trees_in_hoods['NAME'].value_counts())
 
 
 treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
@@ -85,6 +76,17 @@ layer = [
 view_state = pdk.ViewState(
     longitude=-78.507980, latitude=38.033554, zoom=12, min_zoom=5, max_zoom=15, pitch=20.5, bearing=27.36
 )
+
+"""
+Testing geopandas sjoin - assigns a neighborhood to each tree point
+"""
+trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='left', op='intersects')
+
+"""
+Neighborhood tree totals are counted
+"""
+
+st.write(trees_in_hoods['NAME'].value_counts())
 
 # Combined all of it and render a viewport
 r = pdk.Deck(
