@@ -77,6 +77,16 @@ view_state = pdk.ViewState(
     longitude=-78.507980, latitude=38.033554, zoom=12, min_zoom=5, max_zoom=15, pitch=20.5, bearing=27.36
 )
 
+
+# Combined all of it and render a viewport
+r = pdk.Deck(
+    map_style="mapbox://styles/mapbox/light-v9",
+    layers=[layer],
+    initial_view_state=view_state,
+    tooltip={"html": "<b>Tree species:</b> {tree_choice}", "style": {"color": "white"}},
+)
+st.pydeck_chart(r)
+
 """
 Testing geopandas sjoin - assigns a neighborhood to each tree point
 """
@@ -88,14 +98,6 @@ Neighborhood tree totals are counted
 
 st.write(trees_in_hoods['NAME'].value_counts())
 
-# Combined all of it and render a viewport
-r = pdk.Deck(
-    map_style="mapbox://styles/mapbox/light-v9",
-    layers=[layer],
-    initial_view_state=view_state,
-    tooltip={"html": "<b>Tree species:</b> {tree_choice}", "style": {"color": "white"}},
-)
-st.pydeck_chart(r)
 
 """
 And lastly we provide some geojson output files in case someone wants to check our work in some other system
