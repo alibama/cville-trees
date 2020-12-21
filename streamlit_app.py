@@ -50,7 +50,7 @@ Testing geopandas & libspatialindex?
 """
 trees_in_hoods=gpd.sjoin(trees, cvillehoods, how='left', op='intersects')
 
-st.write(trees_in_hoods.['NAME'].value_counts())
+st.write(trees_in_hoods['NAME'].value_counts())
 
 #st.write(list(trees_in_hoods.columns))
 treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
