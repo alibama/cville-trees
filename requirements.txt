@@ -5,4 +5,9 @@ shapely
 fiona
 geopandas
 pygeos
+folium
 pyproj
+osgeo
+overpass
+geojson
+tempfile
