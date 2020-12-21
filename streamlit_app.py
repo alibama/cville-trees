@@ -42,6 +42,9 @@ cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b810248
 #st.write(type(cvilleresult))
 #cvillegeo = gpd.read_file(api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom"))
 #https://gis.stackexchange.com/questions/130963/write-geojson-into-a-geojson-file-with-python
+treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
+tree_choice = st.sidebar.selectbox('Tree type:', treetype) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
+trees=trees[trees['Common_Name'].str.contains(tree_choice)] # create a dataframe for our deck.gl map to use in the layer as the data source and update it based on the selection made above
 
 """
 Testing geopandas sjoin - assigns a neighborhood to each tree point
@@ -55,9 +58,6 @@ Neighborhood tree totals are counted
 st.write(trees_in_hoods['NAME'].value_counts())
 
 
-treetype = sorted(trees['Common_Name'].drop_duplicates()) # select all of the trees from the dataframe and filter by unique values and sorted alphabetically to create a useful dropdown menu list
-tree_choice = st.sidebar.selectbox('Tree type:', treetype) # render the streamlit widget on the sidebar of the page using the list we created above for the menu
-trees=trees[trees['Common_Name'].str.contains(tree_choice)] # create a dataframe for our deck.gl map to use in the layer as the data source and update it based on the selection made above
 
 dotradius = st.sidebar.slider("Tree dot radius",1,100,50,1) # this creates a slider widget called "tree dot radius" with the format of "slider name", followed by the minimum value, the maximum value, the default value, and the incremental movement value
 """
@@ -67,7 +67,7 @@ And then we write the deck.gl layers from the geopandas dataframes using streaml
 layer = [
     pdk.Layer(
         "GeoJsonLayer",
-        data=cvillehoods,
+        data=trees_in_hoods,
         getFillColor=[60, 220, 255],
  
     ),
