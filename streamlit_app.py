@@ -14,6 +14,7 @@ import osgeo
 import overpass
 import io
 import geojson
+import 
 
 """
 # Welcome to The Cville Tree Commission Neighborhood Tree App!
@@ -98,16 +99,11 @@ Neighborhood tree totals are counted
 
 st.write(trees_in_hoods['NAME'].value_counts())
 
-#import os
-#import base64
+"""
+# Find a tree to see
+
+to test out the open route service with our https://tasks.openstreetmap.us/projects/239/ Cville Sidewalk project we're testing code here from https://openrouteservice.org/
 
 
-#def get_binary_file_downloader_html(bin_file, file_label='File'):
-#    with open(bin_file, 'rb') as f:
-#        data = f.read()
-#    bin_str = base64.b64encode(data).decode()
-#    href = f'<a href="data:application/octet-stream;base64,{bin_str}" download="{os.path.basename(bin_file)}">Download {file_label}</a>'
-#    return href
-#st.markdown(get_binary_file_downloader_html('cvillehoods', 'data'), unsafe_allow_html=True)
-
+"""
 
