@@ -108,9 +108,9 @@ to test out the open route service with our https://tasks.openstreetmap.us/proje
 
 
 """
-coords = ((8.34234,48.23424),(8.34423,48.26424), (8.34523,48.24424), (8.41423,48.21424))
+#coords = ((8.34234,48.23424),(8.34423,48.26424), (8.34523,48.24424), (8.41423,48.21424))
 
-client = openrouteservice.Client(key='5b3ce3597851110001cf62482a2b0678ead546e5a27af36722c330c3') # Specify your personal API key
-routes = client.directions(coords, profile='cycling-regular', optimize_waypoints=True)
+#client = openrouteservice.Client(key='5b3ce3597851110001cf62482a2b0678ead546e5a27af36722c330c3') # Specify your personal API key
+#routes = client.directions(coords, profile='cycling-regular', optimize_waypoints=True)
 
-print(routes)
+#print(routes)
