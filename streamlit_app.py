@@ -14,7 +14,7 @@ import osgeo
 import overpass
 import io
 import geojson
-from openrouteservice import client, places
+#from openrouteservice import client, places
 
 """
 
