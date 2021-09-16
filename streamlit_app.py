@@ -42,7 +42,7 @@ cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b810248
 api = overpass.API()
 cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
 #cvillefile = io.StringIO(cvilleresult)
-#st.write(type(cvilleresult))
+st.write(type(cvilleresult))
 #cvillegeo = gpd.read_file(api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom"))
 #https://gis.stackexchange.com/questions/130963/write-geojson-into-a-geojson-file-with-python
 
