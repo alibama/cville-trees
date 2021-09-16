@@ -10,6 +10,3 @@ pyproj
 osgeo
 overpass
 geojson
-openrouteservice
-ortools
-boto3
