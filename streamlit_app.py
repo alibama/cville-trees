@@ -39,11 +39,11 @@ trees=gpd.read_file("https://opendata.arcgis.com/datasets/e7c856379492408e9543a2
 cvillehoods = gpd.read_file("https://opendata.arcgis.com/datasets/c371ad0b81024822bad1147ff6bb24c4_51.geojson")
 
 #overpass approach
-#api = overpass.API()
-#cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
-#cvillefile = io.StringIO(cvilleresult)
-#st.write(type(cvilleresult))
-#cvillegeo = gpd.read_file(api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom"))
+api = overpass.API()
+cvilleresult = api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom")
+cvillefile = io.StringIO(cvilleresult)
+st.write(type(cvilleresult))
+cvillegeo = gpd.read_file(api.get('way["place"="neighbourhood"](37.964522,-78.573741,38.097572,-78.415126);', responseformat="geojson", verbosity="geom"))
 #https://gis.stackexchange.com/questions/130963/write-geojson-into-a-geojson-file-with-python
 
 
